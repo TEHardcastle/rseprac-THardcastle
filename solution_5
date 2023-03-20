@@ -1,0 +1,3 @@
+i) The fname_out variable will be a string that starts with whatever is stored in the 'Home' variable, followed by 'Ozone_2001-01-01_' and then a 4 digit integer with leading zeroes equal to the value stored in the variable 'simhour', followed by the file extension ".png". For example, if Home = "/home/researcher/", and simhour = 1, fname_out would be "/home/researcher/Ozone_2001-01-01_0001.png" and savefig would create a file called "Ozone_2001-01-01_0001,ong" in the researchers home directory.
+
+ii) The Home and simhour variables are not defined in this code fragment.

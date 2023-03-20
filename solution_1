@@ -1,0 +1,14 @@
+To rename the files with the correct file extension, the following bash command can be used:
+
+for f in *.csv; do mv ${f} ${f%.csv}.dat; done
+
+Breaking this down, 'for f in *.csv; do ... done', is a for loop and generates a list of all the files in the directory with the file extension .csv, with the asterisk serving as a wildcard character.
+This the loops through every element in the list and for each one executes the  command contained between 'do' and 'done'  in turn. 
+When writing the command in between 'do ... done' the elements in the list are referred to by the variable name we specified, in this case 'f'.
+
+The ${f} syntax tells the computer we are referring to the variable held in 'f', with the $ sign indicating that we are referring to a variable, and the curly braces specifying where the variable name starts and ends - this allows us to write commands that will be performed on each element in the list. 
+The syntax ${f%.csv}.dat takes the variable we have stored in 'f' and the % character performs an operation on the variable that will expand it out until the characters after the % sign are seen and then append it with the text after the curly braces are closed.
+In the first instance, for datafile100.csv, this command 'mv ${f} ${f%.csv}.dat' will expand out to 'mv datafile100 datafile100.dat'. 
+This command uses the move command, mv, to rename the file to a .dat file - this will only work without the loop for renaming individual files, the for loop is required to rename more than one file.
+
+More information on for loops can be found with the command 'help for', and more information on mv can be found with the command 'man mv'.

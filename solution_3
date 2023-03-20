@@ -1,0 +1,12 @@
+Two general ways to speed up Python code are reducing the amount of time it takes for the interpreter to convert and execute the script, and the use of parallelisation. 
+
+Python is an example of an interpreted programming language, this means that python scripts are passed to an interpreter rather than executed directly. This is why python scripts are run with the command 'python script.py', rather than simply './script.py' like many other programs.
+When a human readable python script is run the interpreter converts it into machine readable instructions, as this translation step is performed  time of execution there is a an additional time cost.
+Compiled programming languages, such as C/C++, are written as human readable instructions and then converted by a compiler into an executable that can then be run directly. Compiled languages are faster than interpreted languages as the translation step is only performed once. 
+It is not necessary to learn C/C++ to benefit from this as there are tools that can compile python to an executable, or allow python to use precompiled code, such as 'Codon' and 'Cython'.
+
+Parallelisation is the process of using multiple cores simultaneously to perform separate calculations. Almost all modern computers have multicore CPUs making them capable of running calculations in parallel and in serial, where calculations are performed one at a time. 
+For calculations such as this, parallelisation is particularly useful as it is easy to separate out separate jobs for separate CPU cores. In this case the primality of multiple numbers can be checked simultaneously by multiple cores.
+Parallelisation of python code is simple as it can be handled by existing libraries, such as 'multiprocessing'.
+
+With regards to this specific code, the list 's' is created at the beginning of the function and then the while loops iterate through the list and replace elements with a zero if they are non-prime. Repeatedly iterating through the list is costly and there are instances where elements of the list that are already set to zero are set to zero again. Reducing the number of times that the code iterates through the list will save time - consider deleting elements from the list rather than replacing them with zeroes. Alternatively an empty list could be created and then populated with primes - consider using the sieve of Eratosthenes method to choose which integers to check for primality before adding them to the list, rather than using it to remove elements from a pre-existing list.

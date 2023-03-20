@@ -1,0 +1,19 @@
+When running this command in the directory containing the value files, a list of all the files with less than 100 values will be returned 
+
+wc -w values* | grep -v "100 "
+
+'wc -w values*' uses the word count command to count and return the number of whitespace separated strings in the files.
+The '-w' flag specifies that we only want the wordcount returned, ie whitespace separated strings, without this flag wc will return line numbers and character numbers, which we are not concerned with.
+
+The '|' character is known as a pipe, and it takes the output of the command before as the input of the command after. 
+Running the wc command alone will return a long list of all the files and their words counts, including all those that contain 100 values. 
+We pipe the output of wc into another command, grep, which will allow us to filter this list.
+
+'grep -v "100 "' performs a search on the output of the previous command for lines which don't contain the string "100 ".
+The '-v' specifies an invert search and so returns lines that don't contain the string we specify, without this flag grep will return the lines that do contain the string.
+The string specified doesn't always have to be surrounded by double quotes but in this case we want to avoid a situation where the file value100 may not contain 100 values. 
+If values100 contained 99 values then 'wc -w values100' would return '99 values100', which contains the string '100' without the trailing space, and would be missed by our invert search. 
+By specifying the string with a space after it and using double quotes to tell the computer the space is included in the string and not just a space between arguments in our command, our invert search returns all the lines that don't contain the string '100' followed by a space, ie where the string occurs at the start of the line indicating the value count, and not at the end of the line as part of the filename.
+
+More information on wc and grep can be accessed from the commandline by using the commands 'man wc' and 'man grep' respectively. Both are very useful tools and will be useful in solving similar problems in the future should they arise.
+

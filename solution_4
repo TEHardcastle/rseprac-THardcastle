@@ -1,0 +1,14 @@
+Initially I would seek to understand specificallly what group of individuals where of interest, the wording here is ambiguous and could refer to a list of named individuals or a group of individuals who share some specific property. I would also clarify the start and end date of the posts to be collected.
+
+Once the group of individuals was clarified, I would seek to understand what data was required. Example questions would be:
+ - Are you seeking to collect all of the tweets and posts from all of the individuals for the specified time period?
+ - Are you seeking to collect posts that contain only specific key words, use a specific hashtag, or have words from a specific semantic field?
+ - Are you seeking to collect any data other than the text from the posts, for example metadata such as location data? Images and video files attached to the posts?
+ - If images are collected does any text within the image need to be extracted via OCR?
+ - If video/audio files are collected does any speech need to be converted to text with speech to text software?
+
+I would also ask whether the data needs to be anonymised, and if so, does it still need to be clear which posts where made by the same individual, ie should the posts from one person be associated with an anonymous unique identifier or can all the posts be stripped of author data.
+
+Also if there is there a requirement to associate twitter and facebook accounts of the same individuals so that there posts on different platforms can be related to the same individual.
+
+Lastly, I would seek to understand the format that the data needed to be presented to the researcher in - asking them what software they would be using to analyse the data, and if they knew what data formats it could take in.
